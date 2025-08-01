@@ -17,8 +17,6 @@ defineProps<{
   padding: 20px;
   width: 250px;
   cursor: pointer;
-  border: 1px solid red;
-  border-radius: 20%;
   margin-bottom: 18px;
   font-size: 10px;
   text-align: right;
