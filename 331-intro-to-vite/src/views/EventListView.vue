@@ -56,7 +56,7 @@ onMounted(() => {
       <RouterLink id="page-next"
       class="flex-1 text-right"
       :to="{ name: 'event-list-view', query: { page: page + 1,size:size } }" rel="next"
-        v-if="hasNextPage">Next Page &#62</RouterLink>
+        v-if="hasNextPage">Next Page &#62;</RouterLink>
     </div>
   </div>
 

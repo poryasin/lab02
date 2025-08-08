@@ -3,7 +3,7 @@
 
 import { useEventStore } from '@/stores/event';
 import { storeToRefs } from 'pinia';
-import { RouterLink, RouterView, useRoute } from 'vue-router';
+
 
 const store = useEventStore()
 const { event } = storeToRefs(store)
