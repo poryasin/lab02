@@ -2,11 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { useMassageStore } from './stores/message';
 import { storeToRefs } from 'pinia';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 const store = useMassageStore()
 const {message} = storeToRefs(store)
+
+injectSpeedInsights();
 </script>
 
-<template>
+<template><injectSpeedInsights/>
   <div class="text-center font-sans text-gray-700 antialias">
     <header>
       <div id="flashMessage" class="animate-fade" v-if="message">
