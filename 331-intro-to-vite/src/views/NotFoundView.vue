@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { defineProps,withDefaults } from 'vue';
+import { defineProps, withDefaults } from 'vue'
 const props = withDefaults(
     defineProps<{
-        resource: String
-    } >(),
+        resource: string
+    }>(),
     {
-       resource: 'page'
+        resource: 'page'
     }
 )
 </script>
 
-
 <template>
     <h1>Oops!</h1>
     <h3>The {{resource}} you're looking for is not here.</h3>
-    <router-link :to="{name: 'event-list-view'}">Back to the home page
-    </router-link>
+    <router-link :to="{ name: 'event-list-view' }">Back to the homepage</router-link>
 </template>
