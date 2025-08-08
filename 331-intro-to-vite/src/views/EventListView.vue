@@ -10,7 +10,7 @@ const router = useRouter()
 const events = ref<Event[]>([])
 const totalEvents = ref(0)
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / 3)
+  const totalPages = Math.ceil(totalEvents.value / size.value)
   return page.value < totalPages
 })
 
@@ -28,7 +28,7 @@ const page = computed(() => props.page)
 const size = computed(() => props.size)
 onMounted(() => {
  watchEffect(() => {
-  EventService.getEvents(3, page.value)
+  EventService.getEvents(size.value, page.value)
     .then((response) => {
       events.value = response.data
       totalEvents.value = Number(response.headers['x-total-count'])
@@ -46,13 +46,15 @@ onMounted(() => {
   <div class="flex flex-col items-center">
       <EventCard v-for="event in events" :key="event.id" :event="event" />
     <div class="pagination">
-      <RouterLink 
-      id="page-prev" 
+      <RouterLink
+      id="page-prev"
+      class="flex-1 text-left"
       :to="{ name: 'event-list-view', query: { page: page - 1, size: size } }" rel="prev" v-if="page != 1">
         &#60; Prev Page</RouterLink>
 
 
-      <RouterLink id="page-next" 
+      <RouterLink id="page-next"
+      class="flex-1 text-right"
       :to="{ name: 'event-list-view', query: { page: page + 1,size:size } }" rel="next"
         v-if="hasNextPage">Next Page &#62</RouterLink>
     </div>
@@ -60,33 +62,3 @@ onMounted(() => {
 
 </template>
 
-<style scoped>
-.pagination{
-  display: flex;
-}
-
-.category {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.pagination {
-  display: flex;
-  width: 290px;
-}
-
-.pagination a {
-  flex: 1;
-  text-decoration: none;
-  color: #2c3e50;
-}
-
-#page-prev {
-  text-align: left;
-}
-
-#page-next {
-  text-align: right;
-}
-</style>

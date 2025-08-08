@@ -29,11 +29,11 @@ import {type Event } from '@/types'
     <CategoryInfo  :event="event" />
   </div>
     </div>
-      
+
   </RouterLink>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 .event-card {
   padding: 20px;
   width: 250px;
@@ -51,4 +51,4 @@ import {type Event } from '@/types'
   text-decoration: none;
   color: #2c3e50;
 }
-</style>
+</style> -->

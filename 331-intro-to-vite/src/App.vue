@@ -7,22 +7,23 @@ const {message} = storeToRefs(store)
 </script>
 
 <template>
-  <div id="text-center font-sans text-gray-700 antialias">
+  <div class="text-center font-sans text-gray-700 antialias">
     <header>
-      <div id="layout">
-        <h4> {{ message }}</h4>
+      <div id="flashMessage" class="animate-fade" v-if="message">
+        <h4>{{ message }}</h4>
       </div>
+      <h4>Deploy with Vercel</h4>
       <div class="wrapper">
         <nav class="py-6">
           <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'event-list-view' }">Event</RouterLink> |
-          <RouterLink class="font-bold text-hray-700" exact-active-class="text-green-500" :to="{ name: 'about' }">About</RouterLink> |
-          <RouterLink :to="{ name: 'students' }">Students</RouterLink>
+          <RouterLink class="font-bold text-gray-700" exact-active-class="text-green-500" :to="{ name: 'about' }">About</RouterLink> |
+          <RouterLink :to="{ name: 'students' }">Student</RouterLink>
         </nav>
-        <div class=" page-size-selector">
+        <div class="page-size-selector">
           <span>Page Size: </span>
-          <RouterLink :to="{name: 'event-list-view', query:{page: 1,size: 2}}">2</RouterLink> |
-          <RouterLink :to="{name: 'event-list-view', query:{page: 1,size: 4}}">4</RouterLink> |
-          <RouterLink :to="{name: 'event-list-view', query:{page: 1,size: 6}}">6</RouterLink> |
+          <RouterLink :to="{ name: 'event-list-view', query: { page: 1, size: 2 } }">2</RouterLink> |
+          <RouterLink :to="{ name: 'event-list-view', query: { page: 1, size: 4 } }">4</RouterLink> |
+          <RouterLink :to="{ name: 'event-list-view', query: { page: 1, size: 6 } }">6</RouterLink>
         </div>
       </div>
     </header>
@@ -30,7 +31,7 @@ const {message} = storeToRefs(store)
   </div>
 </template>
 
-<style>
+<!-- <style>
 nav{
   padding: 30p;
 }
@@ -73,4 +74,4 @@ nav a.router-link-exact-active {
   margin: 0 4px;
   font-weight: normal;
 }
-</style>
+</style> -->
