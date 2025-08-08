@@ -6,10 +6,9 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import 'nprogress/nprogress.css'
-import { Analytics } from "@vercel/analytics/next"
+import { inject } from "@vercel/analytics"
+inject()
 
-// Pass an empty object or appropriate props if needed
-Analytics({})
 const app = createApp(App)
 
 app.use(createPinia())
